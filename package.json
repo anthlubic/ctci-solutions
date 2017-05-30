@@ -1,0 +1,24 @@
+{
+  "name": "ctci-solutions",
+  "version": "1.0.0",
+  "description": "Solutions to Cracking the Coding Interview",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthlubic/ctci-solutions.git"
+  },
+  "author": "Anth Lubic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anthlubic/ctci-solutions/issues"
+  },
+  "homepage": "https://github.com/anthlubic/ctci-solutions#readme",
+  "devDependencies": {
+    "jasmine": "^2.6.0",
+    "jasmine-spec-reporter": "^4.1.0"
+  }
+}
