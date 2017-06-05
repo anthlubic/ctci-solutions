@@ -1,26 +1,27 @@
 function oneAway(str1, str2) {
-	let diff = Math.abs(str1.length - str2.length);
-	if (diff > 1) return false;
+	let changes = countInserts(str1, str2);
+	changes += countDeletes(str1, str2);
+	if (changes > 1) return false;
 
-	let map1 = buildCounts(str1.split(''));
-	let map2 = buildCounts(str2.split(''));
-	let changes = 0;
-	for (let letter of arr1) {
-		let pos = arr2.indexOf(letter);
-		if (pos === -1) return false;
-		arr2[pos] = null;
-		changes += 1;
+	for (let i = str1.length; i > 0; i--) {
+		console.log(str1, str2);
+		let pos = str2.indexOf(str1[i]);
+		str1 = str1.slice(0, i) + str1.slice(i + 1, str1.length);
+		if (pos === -1) continue;
+		str2 = str2.slice(0, pos) + str2.slice(pos + 1, str2.length);
 	}
 
 	return changes <= 1;
 }
 
-function buildCounts(arr); {
-  let map = {};
-  for (let item of arr) {
-    map[item] = map[item] || 1;
-  }
-  return map;
+function countInserts(str1, str2) {
+	let diff = str1.length - str2.length;
+	return diff < 0 ? 0 : diff;
+}
+
+function countDeletes(str1, str2) {
+	let diff = str2.length - str1.length;
+	return diff < 0 ? 0 : diff;
 }
 
 module.exports = oneAway;
