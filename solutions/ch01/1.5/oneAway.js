@@ -1,3 +1,9 @@
+/*
+1.5 One Away: There are three types of edits that can be performed on strings: insert a character,
+remove a character, or replace a character. Given two strings, write a function to check if they are
+one edit (or zero edits) away
+*/
+
 function oneAway(str1, str2) {
 	if (str1.length === str2.length) return needsOneReplace(str1, str2);
 	if (str1.length + 1 === str2.length) return needsOneInsert(str1, str2);
