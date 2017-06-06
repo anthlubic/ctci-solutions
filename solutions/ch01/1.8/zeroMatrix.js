@@ -20,18 +20,19 @@ column are set to 0.
 function zeroMatrix(matrix) {
 	let zeroes = new Set();
 	for (let row = 0; row < matrix.length; row++) {
+		let zeroRow = false;
 		let currentRow = matrix[row];
 		for (let col = 0; col < currentRow.length; col++) {
 			if (currentRow[col] === 0) {
 				zeroes.add(col);
-				for (let i = 0; i < currentRow.length; i++) {
-					currentRow[i] = 0;
-				}
-				break;
+				zeroRow = true;
 			}
 			if (zeroes.has(col)) {
 				currentRow[col] = 0;
 			}
+		}
+		if (zeroRow) {
+			matrix[row] = currentRow.map(e => 0);
 		}
 	}
 	return matrix;
